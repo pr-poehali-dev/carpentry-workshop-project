@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Icon from "@/components/ui/icon";
  
 
@@ -61,8 +62,8 @@ function useInView(threshold = 0.15) {
 }
 
 export default function Index() {
+  const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState("Главная");
-  const [activeCategory, setActiveCategory] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -268,11 +269,10 @@ export default function Index() {
 
           <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 transition-all duration-1000 delay-200 ${portfolioRef.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             {CATEGORIES.map((cat) => {
-              const isActive = activeCategory === cat.id;
               return (
                 <div
                   key={cat.id}
-                  onClick={() => setActiveCategory(isActive ? null : cat.id)}
+                  onClick={() => navigate(`/category/${cat.id}`)}
                   className="group relative cursor-pointer overflow-hidden"
                   style={{ aspectRatio: "4/3" }}
                 >
@@ -281,36 +281,37 @@ export default function Index() {
                     alt={cat.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  {/* dark overlay always */}
                   <div
                     className="absolute inset-0 transition-opacity duration-400"
-                    style={{ background: isActive ? "rgba(14,12,10,0.82)" : "rgba(14,12,10,0.55)" }}
+                    style={{ background: "rgba(14,12,10,0.55)" }}
                   />
-                  {/* gold top border on hover/active */}
                   <div
-                    className="absolute top-0 left-0 right-0 h-[2px] transition-all duration-400"
-                    style={{ background: "var(--gold)", opacity: isActive ? 1 : 0, transform: isActive ? "scaleX(1)" : "scaleX(0)" }}
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+                    style={{ background: "rgba(14,12,10,0.3)" }}
+                  />
+                  <div
+                    className="absolute top-0 left-0 right-0 h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                    style={{ background: "var(--gold)" }}
                   />
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 text-center">
                     <Icon
                       name={cat.icon as string}
                       size={22}
-                      className="transition-all duration-400"
-                      style={{ color: isActive ? "var(--gold)" : "rgba(201,168,76,0.7)" } as React.CSSProperties}
+                      className="transition-all duration-300 group-hover:scale-110"
+                      style={{ color: "rgba(201,168,76,0.8)" } as React.CSSProperties}
                     />
                     <span
-                      className="font-cormorant font-light leading-tight transition-all duration-300"
+                      className="font-cormorant font-light leading-tight transition-colors duration-300 group-hover:text-yellow-200"
                       style={{
                         fontSize: "clamp(13px, 1.4vw, 18px)",
-                        color: isActive ? "var(--gold-light)" : "rgba(212,197,169,0.92)",
+                        color: "rgba(212,197,169,0.92)",
                       }}
                     >
                       {cat.title}
                     </span>
                     <div
-                      className="h-px transition-all duration-400"
+                      className="h-px w-0 group-hover:w-8 transition-all duration-400"
                       style={{
-                        width: isActive ? "32px" : "0px",
                         background: "var(--gold)",
                       }}
                     />
