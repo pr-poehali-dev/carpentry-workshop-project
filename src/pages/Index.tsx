@@ -102,8 +102,7 @@ export default function Index() {
           <div className="flex items-center gap-4">
             <img src={LOGO_URL} alt="M Logo" className="w-10 h-10 object-cover rounded-full" style={{ filter: "brightness(0.9)" }} />
             <div>
-              <div className="font-cormorant text-xl font-semibold tracking-widest text-gold">М</div>
-              <div className="font-montserrat text-[9px] tracking-[0.25em] uppercase" style={{ color: "rgba(201,168,76,0.6)" }}>Мастерская</div>
+              <div className="font-cormorant text-xl font-semibold tracking-widest text-gold">Масторас</div>
             </div>
           </div>
 
@@ -169,7 +168,7 @@ export default function Index() {
             <div className="opacity-0 animate-fade-in-up" style={{ animationFillMode: "forwards" }}>
               <div className="flex items-center gap-4 mb-10">
                 <div className="h-px w-12" style={{ background: "var(--gold)" }} />
-                <span className="font-montserrat text-[10px] tracking-[0.35em] uppercase text-gold">Мебельная мастерская</span>
+                <span className="font-montserrat text-[10px] tracking-[0.35em] uppercase text-gold">Масторас</span>
               </div>
             </div>
 
@@ -353,7 +352,7 @@ export default function Index() {
           <div className={`transition-all duration-1000 delay-300 ${aboutRef.inView ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}>
             <div className="flex items-center gap-4 mb-4">
               <div className="h-px w-12" style={{ background: "var(--gold)" }} />
-              <span className="font-montserrat text-[10px] tracking-[0.35em] uppercase text-gold">О мастерской</span>
+              <span className="font-montserrat text-[10px] tracking-[0.35em] uppercase text-gold">О нас</span>
             </div>
             <h2 className="font-cormorant text-5xl font-light mb-8 leading-tight">
               Мы создаём <br />
@@ -362,7 +361,7 @@ export default function Index() {
               а наследие
             </h2>
             <p className="font-montserrat text-sm leading-loose mb-6" style={{ color: "rgba(212,197,169,0.65)" }}>
-              Мастерская «М» основана в 2012 году. За эти годы мы реализовали более 340 проектов —
+              Масторас основана в 2012 году. За эти годы мы реализовали более 340 проектов —
               от единственного авторского кресла до полного оснащения резиденций и бутик-отелей.
             </p>
             <p className="font-montserrat text-sm leading-loose mb-10" style={{ color: "rgba(212,197,169,0.65)" }}>
@@ -489,7 +488,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-4">
             <img src={LOGO_URL} alt="M" className="w-8 h-8 object-cover rounded-full opacity-70" />
-            <span className="font-cormorant text-lg tracking-widest text-gold">М — Мастерская</span>
+            <span className="font-cormorant text-lg tracking-widest text-gold">Масторас</span>
           </div>
           <div className="flex gap-8">
             {NAV_LINKS.map((link) => (
@@ -504,7 +503,7 @@ export default function Index() {
             ))}
           </div>
           <div className="font-montserrat text-[9px] tracking-widest" style={{ color: "rgba(212,197,169,0.25)" }}>
-            © 2024 Мастерская М
+            © 2024 Масторас
           </div>
         </div>
       </footer>
