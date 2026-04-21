@@ -102,7 +102,7 @@ export default function Index() {
           <div className="flex items-center gap-4">
             <img src={LOGO_URL} alt="M Logo" className="w-10 h-10 object-cover rounded-full" style={{ filter: "brightness(0.9)" }} />
             <div>
-              <div className="font-cormorant text-xl font-semibold tracking-widest text-gold">Масторас</div>
+              <div className="font-cormorant text-3xl font-semibold tracking-widest text-gold">Масторас</div>
             </div>
           </div>
 
