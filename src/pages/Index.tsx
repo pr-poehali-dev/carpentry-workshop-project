@@ -9,17 +9,28 @@ const IMG_WARDROBE = "https://cdn.poehali.dev/projects/864709f9-7445-4d2e-b018-c
 
 const NAV_LINKS = ["Главная", "Портфолио", "Услуги", "О нас", "Контакты"];
 
-const PORTFOLIO_ITEMS = [
-  { id: 1, img: IMG_TABLE, title: "Обеденный стол «Дубрава»", material: "Орех", type: "Столы", year: "2024" },
-  { id: 2, img: IMG_CHAIR, title: "Кресло «Либра»", material: "Кожа, Дуб", type: "Кресла", year: "2024" },
-  { id: 3, img: IMG_WARDROBE, title: "Гардероб «Альба»", material: "Беленый дуб", type: "Хранение", year: "2024" },
-  { id: 4, img: IMG_TABLE, title: "Письменный стол «Форт»", material: "Массив", type: "Столы", year: "2023" },
-  { id: 5, img: IMG_CHAIR, title: "Кресло «Орион»", material: "Велюр, Орех", type: "Кресла", year: "2023" },
-  { id: 6, img: IMG_WARDROBE, title: "Шкаф «Монако»", material: "Шпон дуба", type: "Хранение", year: "2023" },
+const CATEGORIES = [
+  { id: 1,  img: IMG_TABLE,    title: "Интерьерная мебель ресторана", icon: "UtensilsCrossed" },
+  { id: 2,  img: IMG_WARDROBE, title: "Лестницы",                     icon: "MoveUp" },
+  { id: 3,  img: IMG_TABLE,    title: "Кухни",                         icon: "ChefHat" },
+  { id: 4,  img: IMG_WARDROBE, title: "Шкафы",                         icon: "Package" },
+  { id: 5,  img: IMG_TABLE,    title: "Буфеты",                        icon: "Archive" },
+  { id: 6,  img: IMG_TABLE,    title: "Обеденные столы",               icon: "Square" },
+  { id: 7,  img: IMG_WARDROBE, title: "Стенки",                        icon: "Layers" },
+  { id: 8,  img: IMG_CHAIR,    title: "Прихожие",                      icon: "DoorOpen" },
+  { id: 9,  img: IMG_TABLE,    title: "Двери межкомнатные",            icon: "DoorClosed" },
+  { id: 10, img: IMG_WARDROBE, title: "Двери входные",                 icon: "Shield" },
+  { id: 11, img: IMG_TABLE,    title: "Библиотека",                    icon: "BookOpen" },
+  { id: 12, img: IMG_CHAIR,    title: "Кабинеты",                      icon: "Briefcase" },
+  { id: 13, img: IMG_CHAIR,    title: "Кровати",                       icon: "Bed" },
+  { id: 14, img: IMG_WARDROBE, title: "Ванные",                        icon: "Droplets" },
+  { id: 15, img: IMG_TABLE,    title: "Садовая мебель",                icon: "Flower2" },
+  { id: 16, img: IMG_CHAIR,    title: "Детские",                       icon: "Star" },
+  { id: 17, img: IMG_TABLE,    title: "Предметы интерьера",            icon: "Lamp" },
+  { id: 18, img: IMG_WARDROBE, title: "Беседки",                       icon: "Home" },
+  { id: 19, img: IMG_TABLE,    title: "Настилы / Сад",                 icon: "TreePine" },
+  { id: 20, img: IMG_WARDROBE, title: "Шпон",                          icon: "Palette" },
 ];
-
-const TYPE_FILTERS = ["Все", "Столы", "Кресла", "Хранение"];
-const MATERIAL_FILTERS = ["Все материалы", "Орех", "Дуб", "Кожа", "Массив"];
 
 const SERVICES = [
   { icon: "Ruler", title: "Индивидуальный проект", desc: "Разрабатываем мебель под ваши размеры, вкус и интерьер. Никаких компромиссов — только ваше видение." },
@@ -51,8 +62,7 @@ function useInView(threshold = 0.15) {
 
 export default function Index() {
   const [activeSection, setActiveSection] = useState("Главная");
-  const [typeFilter, setTypeFilter] = useState("Все");
-  const [materialFilter, setMaterialFilter] = useState("Все материалы");
+  const [activeCategory, setActiveCategory] = useState<number | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -66,12 +76,6 @@ export default function Index() {
     window.addEventListener("scroll", handler);
     return () => window.removeEventListener("scroll", handler);
   }, []);
-
-  const filteredItems = PORTFOLIO_ITEMS.filter((item) => {
-    const typeOk = typeFilter === "Все" || item.type === typeFilter;
-    const matOk = materialFilter === "Все материалы" || item.material.includes(materialFilter);
-    return typeOk && matOk;
-  });
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -262,39 +266,58 @@ export default function Index() {
             <h2 className="font-cormorant text-5xl lg:text-6xl font-light mb-16">Портфолио</h2>
           </div>
 
-          <div className={`flex flex-wrap gap-3 mb-6 transition-all duration-1000 delay-200 ${portfolioRef.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-            <div className="flex flex-wrap gap-2">
-              {TYPE_FILTERS.map((f) => (
-                <button key={f} className={`filter-btn ${typeFilter === f ? "active" : ""}`} onClick={() => setTypeFilter(f)}>{f}</button>
-              ))}
-            </div>
-            <div className="w-px self-stretch" style={{ background: "rgba(201,168,76,0.2)" }} />
-            <div className="flex flex-wrap gap-2">
-              {MATERIAL_FILTERS.map((f) => (
-                <button key={f} className={`filter-btn ${materialFilter === f ? "active" : ""}`} onClick={() => setMaterialFilter(f)}>{f}</button>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {filteredItems.length === 0 ? (
-              <div className="col-span-3 py-24 text-center">
-                <p className="font-cormorant text-3xl font-light" style={{ color: "rgba(212,197,169,0.4)" }}>Работы не найдены</p>
-              </div>
-            ) : (
-              filteredItems.map((item) => (
-                <div key={item.id} className="portfolio-card aspect-[4/5] cursor-pointer">
-                  <img src={item.img} alt={item.title} className="w-full h-full object-cover" />
-                  <div className="overlay" />
-                  <div className="card-info">
-                    <div className="font-montserrat text-[9px] tracking-[0.3em] uppercase mb-2" style={{ color: "var(--gold)" }}>
-                      {item.type} · {item.material}
-                    </div>
-                    <div className="font-cormorant text-xl text-white font-light">{item.title}</div>
+          <div className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 transition-all duration-1000 delay-200 ${portfolioRef.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+            {CATEGORIES.map((cat) => {
+              const isActive = activeCategory === cat.id;
+              return (
+                <div
+                  key={cat.id}
+                  onClick={() => setActiveCategory(isActive ? null : cat.id)}
+                  className="group relative cursor-pointer overflow-hidden"
+                  style={{ aspectRatio: "4/3" }}
+                >
+                  <img
+                    src={cat.img}
+                    alt={cat.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* dark overlay always */}
+                  <div
+                    className="absolute inset-0 transition-opacity duration-400"
+                    style={{ background: isActive ? "rgba(14,12,10,0.82)" : "rgba(14,12,10,0.55)" }}
+                  />
+                  {/* gold top border on hover/active */}
+                  <div
+                    className="absolute top-0 left-0 right-0 h-[2px] transition-all duration-400"
+                    style={{ background: "var(--gold)", opacity: isActive ? 1 : 0, transform: isActive ? "scaleX(1)" : "scaleX(0)" }}
+                  />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 p-4 text-center">
+                    <Icon
+                      name={cat.icon as string}
+                      size={22}
+                      className="transition-all duration-400"
+                      style={{ color: isActive ? "var(--gold)" : "rgba(201,168,76,0.7)" } as React.CSSProperties}
+                    />
+                    <span
+                      className="font-cormorant font-light leading-tight transition-all duration-300"
+                      style={{
+                        fontSize: "clamp(13px, 1.4vw, 18px)",
+                        color: isActive ? "var(--gold-light)" : "rgba(212,197,169,0.92)",
+                      }}
+                    >
+                      {cat.title}
+                    </span>
+                    <div
+                      className="h-px transition-all duration-400"
+                      style={{
+                        width: isActive ? "32px" : "0px",
+                        background: "var(--gold)",
+                      }}
+                    />
                   </div>
                 </div>
-              ))
-            )}
+              );
+            })}
           </div>
         </div>
       </section>
