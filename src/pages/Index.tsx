@@ -336,7 +336,7 @@ export default function Index() {
 
           <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 transition-all duration-1000 delay-200 ${servicesRef.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
             {SERVICES.map((s, i) => (
-              <div key={i} className="service-card">
+              <div key={i} className="service-card cursor-pointer group" onClick={() => navigate(`/service/${i}`)}>
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-10 h-10 flex items-center justify-center" style={{ border: "1px solid rgba(201,168,76,0.3)" }}>
                     <Icon name={s.icon as string} size={18} className="text-gold" />
@@ -344,7 +344,7 @@ export default function Index() {
                   <h3 className="font-cormorant text-2xl font-light">{s.title}</h3>
                 </div>
                 <p className="font-montserrat text-sm leading-relaxed" style={{ color: "rgba(212,197,169,0.6)" }}>{s.desc}</p>
-                <div className="mt-8 flex items-center gap-3 text-gold group cursor-pointer">
+                <div className="mt-8 flex items-center gap-3 text-gold">
                   <span className="font-montserrat text-[10px] tracking-[0.2em] uppercase">Подробнее</span>
                   <Icon name="ArrowRight" size={14} className="group-hover:translate-x-2 transition-transform" />
                 </div>
