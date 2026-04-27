@@ -384,6 +384,17 @@ export default function Index() {
               <br />
               а наследие
             </h2>
+            <div className="mb-8 p-6" style={{ border: "1px solid rgba(201,168,76,0.18)", background: "rgba(201,168,76,0.04)" }}>
+              <div className="flex items-baseline gap-3 mb-2">
+                <span className="font-cormorant text-2xl italic" style={{ color: "var(--gold)" }}>Μάστορας</span>
+                <span className="font-montserrat text-[9px] tracking-[0.25em] uppercase" style={{ color: "rgba(212,197,169,0.4)" }}>греч.</span>
+              </div>
+              <p className="font-montserrat text-xs leading-relaxed" style={{ color: "rgba(212,197,169,0.6)" }}>
+                «Мастер», «ремесленник», «знаток своего дела» — так звучит наше название по-гречески.
+                Слово уходит корнями в античность, когда мастер был хранителем традиции и эталоном качества.
+                Именно это мы вкладываем в каждое изделие.
+              </p>
+            </div>
             <p className="font-montserrat text-sm leading-loose mb-6" style={{ color: "rgba(212,197,169,0.65)" }}>
               Масторас основана в 2012 году. За эти годы мы реализовали более 340 проектов —
               от единственного авторского кресла до полного оснащения резиденций и бутик-отелей.
