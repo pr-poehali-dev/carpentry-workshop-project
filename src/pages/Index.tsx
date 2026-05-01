@@ -471,6 +471,29 @@ export default function Index() {
                 </div>
               ))}
             </div>
+
+            <div className="mt-10">
+              <div className="font-montserrat text-[9px] tracking-[0.25em] uppercase mb-4" style={{ color: "rgba(201,168,76,0.5)" }}>Мы в социальных сетях</div>
+              <div className="flex items-center gap-3">
+                {[
+                  { label: "VK", href: "https://vk.com/mastor_as" },
+                  { label: "TG", href: "https://t.me/m_astoras" },
+                  { label: "MAX", href: "https://max.ru/id380413820491_biz" },
+                  { label: "IG", href: "https://instagram.com/mastor.as" },
+                ].map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-montserrat text-[10px] tracking-[0.2em] uppercase px-4 py-2.5 transition-all duration-300 hover:bg-gold hover:text-black"
+                    style={{ border: "1px solid rgba(201,168,76,0.3)", color: "rgba(212,197,169,0.7)" }}
+                  >
+                    {s.label}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className={`transition-all duration-1000 delay-300 ${contactRef.inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
