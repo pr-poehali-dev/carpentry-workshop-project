@@ -526,6 +526,9 @@ export default function Index() {
                   </a>
                 ))}
               </div>
+              <p className="font-montserrat text-[9px] leading-relaxed mt-4" style={{ color: "rgba(212,197,169,0.35)" }}>
+                Деятельность организации Meta по реализации Instagram признана экстремистской и запрещена на территории РФ.
+              </p>
             </div>
           </div>
 
