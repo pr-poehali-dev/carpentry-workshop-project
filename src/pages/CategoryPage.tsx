@@ -217,6 +217,7 @@ export default function CategoryPage() {
                   key={work.id}
                   className="group relative overflow-hidden cursor-pointer"
                   style={{ aspectRatio: "4/5" }}
+                  onClick={() => navigate(`/category/${catId}/item/${work.id}`)}
                 >
                   <img
                     src={work.img}
