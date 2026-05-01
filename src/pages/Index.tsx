@@ -380,7 +380,7 @@ export default function Index() {
             </div>
             <h2 className="font-cormorant text-5xl font-light mb-8 leading-tight">
               Мы создаём <br />
-              <em className="text-gold not-italic">не мебель —</em>
+              <em className="text-gold not-italic">не изделие —</em>
               <br />
               а наследие
             </h2>
