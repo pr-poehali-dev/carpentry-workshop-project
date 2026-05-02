@@ -124,12 +124,28 @@ export default function Index() {
             ))}
           </nav>
 
-          <button
-            onClick={() => scrollTo("contacts")}
-            className="hidden md:block font-montserrat text-[10px] tracking-[0.2em] uppercase px-6 py-3 border border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300"
-          >
-            Консультация
-          </button>
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="https://t.me/+79246393840"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-montserrat text-[10px] tracking-[0.15em] uppercase px-4 py-2.5 transition-all duration-300 hover:opacity-80"
+              style={{ background: "var(--gold)", color: "#1a1612" }}
+            >
+              <Icon name="Send" size={13} />
+              Telegram
+            </a>
+            <a
+              href="https://max.ru/id380413820491_biz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-montserrat text-[10px] tracking-[0.15em] uppercase px-4 py-2.5 transition-all duration-300 hover:bg-gold hover:text-black"
+              style={{ border: "1px solid var(--gold)", color: "var(--gold)" }}
+            >
+              <Icon name="MessageCircle" size={13} />
+              MAX
+            </a>
+          </div>
 
           <button className="md:hidden text-gold" onClick={() => setMenuOpen(!menuOpen)}>
             <Icon name={menuOpen ? "X" : "Menu"} size={22} />
