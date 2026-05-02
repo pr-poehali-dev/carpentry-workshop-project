@@ -455,10 +455,10 @@ export default function Index() {
 
             <div className="flex flex-col gap-8">
               {[
-                { icon: "Phone", label: "Телефон (Telegram, MAX)", value: "+7 924 639 38 40" },
-                { icon: "Mail", label: "Email", value: "mastoras@mail.ru" },
-                { icon: "MapPin", label: "Адрес", value: "г. Братск, ул. Коммунальная, 16, блок 4" },
-                { icon: "Clock", label: "Время работы", value: "09:00 – 17:00" },
+                { icon: "Phone", label: "Телефон (Telegram, MAX)", value: "+7 924 639 38 40", href: "tel:+79246393840" },
+                { icon: "Mail", label: "Email", value: "mastoras@mail.ru", href: "mailto:mastoras@mail.ru" },
+                { icon: "MapPin", label: "Адрес", value: "г. Братск, ул. Коммунальная, 16, блок 4", href: null },
+                { icon: "Clock", label: "Время работы", value: "09:00 – 17:00", href: null },
               ].map((c, i) => (
                 <div key={i} className="flex items-start gap-5">
                   <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center mt-0.5" style={{ border: "1px solid rgba(201,168,76,0.25)" }}>
@@ -466,7 +466,11 @@ export default function Index() {
                   </div>
                   <div>
                     <div className="font-montserrat text-[9px] tracking-[0.25em] uppercase mb-1" style={{ color: "rgba(201,168,76,0.5)" }}>{c.label}</div>
-                    <div className="font-montserrat text-sm" style={{ color: "rgba(212,197,169,0.85)" }}>{c.value}</div>
+                    {c.href ? (
+                      <a href={c.href} className="font-montserrat text-sm transition-opacity hover:opacity-70" style={{ color: "rgba(212,197,169,0.85)" }}>{c.value}</a>
+                    ) : (
+                      <div className="font-montserrat text-sm" style={{ color: "rgba(212,197,169,0.85)" }}>{c.value}</div>
+                    )}
                   </div>
                 </div>
               ))}
