@@ -455,10 +455,10 @@ export default function Index() {
 
             <div className="flex flex-col gap-8">
               {[
-                { icon: "Phone", label: "Телефон", value: "+7 (999) 000-00-00" },
-                { icon: "Mail", label: "Email", value: "hello@masterskaya-m.ru" },
-                { icon: "MapPin", label: "Адрес", value: "Москва, ул. Мастеровая, 12" },
-                { icon: "Clock", label: "Время работы", value: "Пн–Пт: 10:00 – 19:00" },
+                { icon: "Phone", label: "Телефон (Telegram, MAX)", value: "+7 924 639 38 40" },
+                { icon: "Mail", label: "Email", value: "mastoras@mail.ru" },
+                { icon: "MapPin", label: "Адрес", value: "г. Братск, ул. Коммунальная, 16, блок 4" },
+                { icon: "Clock", label: "Время работы", value: "09:00 – 17:00" },
               ].map((c, i) => (
                 <div key={i} className="flex items-start gap-5">
                   <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center mt-0.5" style={{ border: "1px solid rgba(201,168,76,0.25)" }}>
