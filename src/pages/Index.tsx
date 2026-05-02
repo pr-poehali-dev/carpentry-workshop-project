@@ -476,7 +476,7 @@ export default function Index() {
               ))}
             </div>
 
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="https://t.me/+79246393840"
                 target="_blank"
@@ -486,6 +486,16 @@ export default function Index() {
               >
                 <Icon name="Send" size={15} />
                 Написать в Telegram
+              </a>
+              <a
+                href="https://max.ru/id380413820491_biz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-6 py-3 font-montserrat text-xs tracking-[0.15em] uppercase transition-all duration-300 hover:opacity-80"
+                style={{ border: "1px solid var(--gold)", color: "var(--gold)" }}
+              >
+                <Icon name="MessageCircle" size={15} />
+                Написать в MAX
               </a>
             </div>
 
