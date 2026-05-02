@@ -476,6 +476,19 @@ export default function Index() {
               ))}
             </div>
 
+            <div className="mt-8">
+              <a
+                href="https://t.me/+79246393840"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-6 py-3 font-montserrat text-xs tracking-[0.15em] uppercase transition-all duration-300 hover:opacity-80"
+                style={{ background: "var(--gold)", color: "#1a1612" }}
+              >
+                <Icon name="Send" size={15} />
+                Написать в Telegram
+              </a>
+            </div>
+
             <div className="mt-10">
               <div className="font-montserrat text-[9px] tracking-[0.25em] uppercase mb-4" style={{ color: "rgba(201,168,76,0.5)" }}>Мы в социальных сетях</div>
               <div className="flex items-center gap-3">
